@@ -83,6 +83,20 @@ Maria Gomez is connected to Northwind Logistics through a `WORKS_AT` relationshi
 
 I did not create a `LOCATED_IN` relationship between Northwind Logistics and Denver because the article does not establish that the company is located there.
 
+### Graph Visualization
+
+The complete knowledge graph shows the article and its three mentioned entities.
+
+![Complete knowledge graph](docs/images/img1.png)
+
+*Figure 1: Article and entity relationships.*
+
+The following visualization shows the WORKS_AT relationship between Maria Gomez and Northwind Logistics.
+
+![Person organization relationship](docs/images/visualisation.png)
+
+*Figure 2: Maria Gomez's relationship with Northwind Logistics.*
+
 ### Cypher query
 
 The following query finds organizations mentioned in the same article as a given person.
@@ -150,11 +164,3 @@ python -m pytest -q
 ```
 
 **Test result: 58 passed.**
-
-## Graph Results
-
-The following images show the graph results from this project.
-
-![Graph visualization](docs/images/visualisation.png)
-
-![Second graph result](docs/images/img1.png)
