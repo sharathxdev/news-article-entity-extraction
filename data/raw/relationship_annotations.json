@@ -1,0 +1,12 @@
+{
+  "article_id": "NEWS-001",
+  "works_at": [
+    {
+      "person": "Maria Gomez",
+      "organization": "Northwind Logistics",
+      "role": "CEO",
+      "evidence": "Maria Gomez, CEO of Northwind Logistics"
+    }
+  ],
+  "located_in": []
+}
