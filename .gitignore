@@ -225,3 +225,6 @@ __marimo__/
 *.py[cod]
 .DS_Store
 outputs/
+
+# Local databases and runtime files
+.local/
