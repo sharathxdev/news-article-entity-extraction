@@ -1,0 +1,25 @@
+{
+  "article_id": "NEWS-001",
+  "text": "Maria Gomez, CEO of Northwind Logistics, announced a partnership with the city of Denver.",
+  "reference": {
+    "People": [
+      "Maria Gomez"
+    ],
+    "Organizations": [
+      "Northwind Logistics"
+    ],
+    "Locations": [
+      "Denver"
+    ]
+  },
+  "llm_output": {
+    "People": [
+      "Maria Gomez"
+    ],
+    "Organizations": [
+      "Northwind Logistics",
+      "Denver"
+    ],
+    "Locations": []
+  }
+}
