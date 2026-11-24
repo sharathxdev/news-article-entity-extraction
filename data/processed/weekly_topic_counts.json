@@ -1,0 +1,23 @@
+[
+  {
+    "year": 2026,
+    "week_number": 31,
+    "week": "2026-W31",
+    "topic": "local",
+    "article_count": 1
+  },
+  {
+    "year": 2026,
+    "week_number": 32,
+    "week": "2026-W32",
+    "topic": "business",
+    "article_count": 2
+  },
+  {
+    "year": 2026,
+    "week_number": 32,
+    "week": "2026-W32",
+    "topic": "sports",
+    "article_count": 1
+  }
+]

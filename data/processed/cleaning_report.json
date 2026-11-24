@@ -1,0 +1,16 @@
+{
+  "input_count": 5,
+  "invalid_count": 0,
+  "duplicates_removed": 1,
+  "ambiguous_dates_flagged": 1,
+  "ambiguous_date_details": [
+    {
+      "record_index": 1,
+      "raw_date": "08/01/2026",
+      "interpreted_date": "2026-08-01",
+      "selected_format": "MM/DD/YYYY",
+      "reason": "Ambiguous slash date; interpreted as MM/DD/YYYY. The assignment's duplicate ISO record supports August 1 for 08/01/2026."
+    }
+  ],
+  "output_count": 4
+}
