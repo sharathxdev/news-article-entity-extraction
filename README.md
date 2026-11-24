@@ -150,3 +150,11 @@ python -m pytest -q
 ```
 
 **Test result: 58 passed.**
+
+## Graph Results
+
+The following images show the graph results from this project.
+
+![Graph visualization](docs/images/visualisation.png)
+
+![Second graph result](docs/images/img1.png)
