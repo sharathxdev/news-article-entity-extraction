@@ -164,3 +164,65 @@ python -m pytest -q
 ```
 
 **Test result: 58 passed.**
+
+## 5. Evaluation Clarification and Live Neo4j Verification
+
+### Denver: wrong type versus missing entity
+
+The reference extraction is:
+- People: Maria Gomez
+- Organizations: Northwind Logistics
+- Locations: Denver
+
+The LLM extraction is:
+- People: Maria Gomez
+- Organizations: Northwind Logistics, Denver
+- Locations: none
+
+Denver was extracted, but assigned the wrong type. Strict evaluation counts it as a false positive under Organization and a false negative under Location.
+
+In this example, the wrong type is more harmful to the knowledge graph than a missing entity. A missing entity leaves information out. A wrong type can add a false fact by representing Denver as an Organization instead of a Location. This can mislead graph queries and downstream analysis.
+
+The strict F1 score is 0.667 because it checks both entity names and types. The lenient F1 score is 1.0 because it checks only entity names. This difference shows why name-only evaluation can hide an important classification error.
+
+### Live Neo4j execution result
+
+I ran the loader against my local Neo4j instance using:
+
+    python -m src.graph.neo4j_loader --person "Maria Gomez"
+
+The live graph-loading report was:
+
+    articles_loaded: 1
+    entities_loaded: 3
+    mentions_loaded: 3
+    relationships_loaded: 1
+
+The organization lookup returned:
+
+    Person: Maria Gomez
+    Organizations: ['Northwind Logistics']
+
+This result was obtained by executing the query against the running Neo4j database, not only through an automated test.
+
+## 6. Limitations and Next Steps
+
+### Limitations
+
+- The supplied dataset contains only five articles, so the results demonstrate the pipeline on a small example.
+- The entity evaluation uses one reference extraction and one LLM extraction. These scores are not a broad benchmark of entity extraction quality.
+- The graph relationships are based on supplied annotations. The current example does not automatically discover every possible relationship.
+- Deduplication uses normalized article titles because stable article IDs are not supplied. Two different articles with the same title could therefore be treated as duplicates.
+
+### Next Steps
+
+- Test the cleaning and weekly analysis pipeline on a larger news dataset.
+- Evaluate more entity extraction examples, including wrong types, missed entities and incorrect boundaries.
+- Add more evidence-supported relationship examples and test additional graph queries.
+- Evaluate extraction and graph results against a larger annotated dataset.
+
+## 7. AI Tool Usage
+
+ChatGPT was used as a development assistant for implementation guidance, debugging, reviewing explanations and improving project documentation.
+
+I ran the project commands locally, inspected the generated outputs, executed the automated tests and verified the organization lookup against the running Neo4j database. I am responsible for understanding and explaining the implementation, its results and the decisions made in this project.
